@@ -12,4 +12,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 echo "-----> Update apt.postgresql.org to apt-archive.postgresql.org"
-sed -i 's,http://apt.postgresql.org/pub/repos/apt/,https://apt-archive.postgresql.org/pub/repos/apt/,g' /etc/apt/sources.list
+cp /etc/apt/sources.list /tmp
+sed -i -e 's,http://apt.postgresql.org/pub/repos/apt/,https://apt-archive.postgresql.org/pub/repos/apt/,g' /tmp/sources.list
+cat /tmp/sources.list > /etc/apt/sources.list
