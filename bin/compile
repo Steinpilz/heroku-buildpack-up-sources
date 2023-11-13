@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+
+# fail fast
+set -eo pipefail
+
+# debug
+# set -x
+
+# parse and derive params
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+echo "-----> Update apt.postgresql.org to apt-archive.postgresql.org"
+sed -i 's,http://apt.postgresql.org/pub/repos/apt/,https://apt-archive.postgresql.org/pub/repos/apt/,g' /etc/apt/sources.list
